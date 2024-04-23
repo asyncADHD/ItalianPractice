@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Roberto's Italian Practice</h1>
+<div class="buttons">
+  <button onclick="location.href='{{ url_for('main.conjugation_start') }}'" class="neumorphic">
+    <i class="fa-solid fa-pen-clip"></i>
+    <span>Button 1</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-pen-ruler"></i>
+    <span>Button 2</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-marker"></i>
+    <span>Button 3</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-floppy-disk"></i>
+    <span>Button 4</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-ruler-vertical"></i>
+    <span>Button 5</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-pen-circle"></i>
+    <span>Button 6</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-pen-nib"></i>
+    <span>Button 7</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-highlighter"></i>
+    <span>Button 8</span>
+  </button>
+  <button class="neumorphic">
+    <i class="fa-solid fa-font-awesome"></i>
+    <span>Button 9</span>
+  </button>
+</div>
+{% endblock %}

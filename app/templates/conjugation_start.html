@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="welcome-container">
+    <h1>Welcome to Roberto's Italian Practice</h1>
+    <p>Master the art of Italian verb conjugation.</p>
+    <button onclick="window.location.href='{{ url_for('main.select_difficulty') }}'" class="start-button">Start</button>
+</div>
+{% endblock %}
