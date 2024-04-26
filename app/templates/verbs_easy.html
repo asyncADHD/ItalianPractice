@@ -8,26 +8,30 @@
 <body>
 <h1>Match the Italian Verb Forms</h1>
 <div class="game-container">
-    <div class="subject-column">
-        {% for key, value in verb.conjugations.items() %}
-        <div class="subject">{{ key }}</div>
-        {% endfor %}
-    </div>
-    <div class="drop-zone-column">
-        {% for key, value in verb.conjugations.items() %}
-        <div class="drop-zone" id="{{ key }}" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        {% endfor %}
-    </div>
-    <div class="draggable-column">
-        {% for key, value in verb.conjugations.items() %}
-        <div draggable="true" class="draggable" id="drag-{{ key }}" ondragstart="drag(event)">
-            <div class="content">
-                <span class="italian">{{ value['Italian'] }}</span>
-                <span class="translation" style="display: none;">{{ value['English'] }}</span>
-            </div>
+    {% if verb %}
+        <div class="subject-column">
+            {% for key, value in verb.conjugations.items() %}
+            <div class="subject">{{ key }}</div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
+        <div class="drop-zone-column">
+            {% for key, value in verb.conjugations.items() %}
+            <div class="drop-zone" id="{{ key }}" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            {% endfor %}
+        </div>
+        <div class="draggable-column">
+            {% for key, value in verb.conjugations.items() %}
+            <div draggable="true" class="draggable" id="drag-{{ key }}" ondragstart="drag(event)">
+                <div class="content">
+                    <span class="italian">{{ value['Italian'] }}</span>
+                    <span class="translation" style="display: none;">{{ value['English'] }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No verb data available.</p>
+    {% endif %}
 </div>
 <div class="check-answers-container">
     <div class="ans-box">
