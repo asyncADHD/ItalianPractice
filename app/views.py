@@ -1,4 +1,7 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
+import random
+from sqlalchemy import func
+from .models import Verb
 
 main = Blueprint('main', __name__)
 
@@ -21,3 +24,16 @@ def select_difficulty():
 @main.route('/practice/<difficulty>')
 def practice(difficulty):
     return render_template('practice.html', difficulty=difficulty)
+
+
+@main.route('/verbs-easy')
+def verbs_easy():
+    random_verb = Verb.query.order_by(func.random()).first()
+    print(random_verb)
+    return render_template('verbs_easy.html', verb=random_verb)
+
+
+@main.route('/get-verb')
+def get_verb():
+    random_verb = Verb.query.order_by(func.random()).first()
+    return jsonify(verb=random_verb if random_verb else "No verb found")

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verb Conjugation Practice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<h1>Match the Italian Verb Forms</h1>
+<div class="game-container">
+    <div class="subject-column">
+        {% for key, value in verb.conjugations.items() %}
+        <div class="subject">{{ key }}</div>
+        {% endfor %}
+    </div>
+    <div class="drop-zone-column">
+        {% for key, value in verb.conjugations.items() %}
+        <div class="drop-zone" id="{{ key }}" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        {% endfor %}
+    </div>
+    <div class="draggable-column">
+        {% for key, value in verb.conjugations.items() %}
+        <div draggable="true" class="draggable" id="drag-{{ key }}" ondragstart="drag(event)">
+            <div class="content">
+                <span class="italian">{{ value['Italian'] }}</span>
+                <span class="translation" style="display: none;">{{ value['English'] }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="check-answers-container">
+    <div class="ans-box">
+        <button class="check-answers-btn" onclick="checkAnswers()">Check Answers</button>
+        <button class="check-answers-btn" onclick="toggleTranslations()">Show Translation</button>
+    </div>
+</div>
+<div class="pop-up-container">
+<div id="feedback-popup">
+    <div class="feedback-box">
+        <p id="feedback-message"></p>
+        <button onclick="resetPositions()">Try Again</button>
+        <button id="new-verb-button">Get New Verb</button>
+    </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/verbs_easy.js') }}"></script>
+</body>
+</html>

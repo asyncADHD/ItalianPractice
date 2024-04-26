@@ -382,11 +382,11 @@ common_verbs_dict = {
         "loro": {"Italian": "telefonano", "English": "they telephone"}
     }}
 
-def populate_verbs():
-    for verb, conjugations in common_verbs_dict.items():
-        new_verb = Verb(infinitive=verb, conjugations=conjugations)
-        db.session.add(new_verb)
-    db.session.commit()
+# def populate_verbs():
+#     for verb, conjugations in common_verbs_dict.items():
+#         new_verb = Verb(infinitive=verb, conjugations=conjugations)
+#         db.session.add(new_verb)
+#     db.session.commit()
 
 if __name__ == '__main__':
     verb = Verb.query.filter_by(infinitive='TELEFONARE').first()

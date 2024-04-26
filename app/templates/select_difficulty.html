@@ -3,7 +3,7 @@
 {% block content %}
 <div class="difficulty-container">
     <h2>Select Your Difficulty</h2>
-    <button class="difficulty-button" onclick="window.location.href='{{ url_for('main.practice', difficulty='easy') }}'">Easy</button>
+    <button class="difficulty-button" onclick="window.location.href='{{ url_for('main.verbs_easy') }}'">Easy</button>
     <button class="difficulty-button" onclick="window.location.href='{{ url_for('main.practice', difficulty='hard') }}'">Hard</button>
 </div>
 {% endblock %}

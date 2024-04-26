@@ -99,3 +99,179 @@ h1 {
 .difficulty-button:hover {
     background-color: #007ba7;
 }
+
+/* Container for the game area */
+.game-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Column for subjects and their drop zones */
+.subject-column, .drop-zone-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+}
+
+/* Individual subject labels */
+.subject {
+    width: 200px;
+    height: 50px;
+    line-height: 50px; /* Vertically center text */
+    background-color: #ffffff;
+    border: 2px solid #009688;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    border-radius: 5px;
+}
+
+/* Drop zones where verbs will be dropped */
+.drop-zone {
+    width: 200px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border: 2px dashed #009688;
+    margin-bottom: 10px;
+    line-height: 50px; /* Helps vertically center any dropped content */
+    text-align: center;
+    color: #666;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Draggable verb forms */
+.draggable {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: 2px solid #009688;
+    border-radius: 5px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+}
+
+.italian, .translation {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.translation {
+    display: none;
+}
+
+/* Styling for correct and incorrect placements */
+.correct {
+    background-color: #c7e1c4; /* Light green for correct matches */
+    border-color: #4CAF50; /* Darker green border */
+}
+
+.incorrect {
+    background-color: #f4c6c6; /* Light red for incorrect matches */
+    border-color: #e53935; /* Darker red border */
+}
+
+/* Overlay for feedback popup */
+#feedback-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent black background */
+    display: flex;  /* Changed from 'none' to 'flex' to establish the flex container immediately */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;  /* High z-index to keep it above all other content */
+    visibility: hidden;  /* Use visibility to hide/show the popup */
+}
+
+/* Feedback message box styling */
+.feedback-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    transition: visibility 0.2s, opacity 0.2s linear;  /* Transition for smooth appearance */
+    opacity: 0;  /* Start hidden */
+}
+
+/* CSS to show the popup */
+.show-popup {
+    visibility: visible;
+    opacity: 1;
+}
+/* General button styling inside the popup */
+.feedback-box button {
+    padding: 10px 20px;
+    margin-top: 40px;
+    font-size: 16px;
+    background-color: #4caf50ef;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feedback-box button:hover {
+    background-color: #019b08;
+}
+
+/* Specific styling for "Try Again" button to not navigate away */
+.try-again-button {
+    background-color: #FF5722;
+}
+
+.try-again-button:hover {
+    background-color: #FC3D15;
+}
+
+.pop-up-container {
+    display: flex;
+    justify-content: center;
+}
+
+.ans-box {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.check-answers-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.check-answers-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.draggable, .subject, .drop-zone {
+    user-select: none; /* Prevent text selection */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome and Safari */
+    -ms-user-select: none; /* IE */
+}
+
